@@ -15,14 +15,14 @@ module.exports = yeoman.Base.extend({
     }]).then(function(answers) {
       this.props = answers;
       this.props.nameUp = this._capitalizeFirstLetter(this._toCamelCase(this.props.name));
+      this.props.className = _.kebabCase(this.props.name);
     }.bind(this));
   },
   writing: function() {
-    this._copyFiles('name.component.js', this._prefix(this.props.name+'.component.js'));
-    this._copyFiles('name.container.js', this._prefix(this.props.name+'.container.js'));
+    this._copyFiles('index.js', this._prefix('index.js'));
+    this._copyFiles('name.test.js', this._prefix(this.props.name+'.test.js'));
     this._copyFiles('name.stories.js', this._prefix(this.props.name+'.stories.js'));
-    this._copyFiles('mock-data.json', this._prefix('mock-data.json'));
-    this._copyFiles('name.css', this._prefix(this.props.name+'.css'));
+    this._copyFiles('name.scss', this._prefix(this.props.name+'.scss'));
   },
   end: function() {
     var outputMsg = `\n\nYour react component ${this.props.name} has been created.`;
@@ -33,6 +33,7 @@ module.exports = yeoman.Base.extend({
   },
   _copyFiles: function(from, to) {
     this.props.nameUp = this._capitalizeFirstLetter(this._toCamelCase(this.props.name));
+    this.props.className = _.kebabCase(this.props.name);
     this.fs.copyTpl(this.templatePath(from), this.destinationPath(to), this.props);
   },
   _toCamelCase: function(str) {

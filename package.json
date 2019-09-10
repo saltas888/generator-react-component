@@ -1,5 +1,5 @@
 {
-  "name": "@guidesmiths/generator-react-component",
+  "name": "generator-react-component",
   "version": "0.1.0",
   "description": "A generator for a react component",
   "homepage": "https://github.com/guidesmiths/react-component",
