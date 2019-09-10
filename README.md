@@ -1,4 +1,4 @@
-# generator-react-component 
+# A FORK OF: generator-react-component 
 =======
 > A generator for a react component
 
